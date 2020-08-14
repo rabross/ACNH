@@ -1,0 +1,4 @@
+include ':content'
+include ':sea-creature'
+include ':app'
+rootProject.name = "ACNH"
