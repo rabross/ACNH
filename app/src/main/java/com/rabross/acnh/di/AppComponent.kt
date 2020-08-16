@@ -14,7 +14,6 @@ import javax.inject.Singleton
 @Component(
     modules = [
         SeaCreatureModule::class,
-        NetworkModule::class,
         AppModule::class,
         AndroidInjectionModule::class,
         ActivityBindingModule::class]
@@ -26,7 +25,6 @@ interface AppComponent : AndroidInjector<App> {
 
         @BindsInstance
         fun application(application: Application): Builder
-
         fun build(): AppComponent
     }
 }
