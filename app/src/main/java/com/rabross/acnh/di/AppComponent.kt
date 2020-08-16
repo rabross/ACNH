@@ -2,8 +2,8 @@ package com.rabross.acnh.di
 
 import android.app.Application
 import com.rabross.acnh.App
-import com.rabross.acnh.creature.sea.di.ApiModule
-import com.rabross.acnh.creature.sea.di.NetworkModule
+import com.rabross.acnh.core.di.NetworkModule
+import com.rabross.acnh.creature.sea.di.SeaCreatureModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -13,8 +13,8 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
+        SeaCreatureModule::class,
         NetworkModule::class,
-        ApiModule::class,
         AppModule::class,
         AndroidInjectionModule::class,
         ActivityBindingModule::class]

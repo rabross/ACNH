@@ -1,4 +1,4 @@
-package com.rabross.acnh.creature.sea.di
+package com.rabross.acnh.core.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module

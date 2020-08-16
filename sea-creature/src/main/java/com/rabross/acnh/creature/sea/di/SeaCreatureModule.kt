@@ -1,5 +1,6 @@
 package com.rabross.acnh.creature.sea.di
 
+import com.rabross.acnh.core.di.NetworkModule
 import com.rabross.acnh.creature.sea.repository.Repo
 import com.rabross.acnh.creature.sea.repository.remote.ApiService
 import com.rabross.acnh.creature.sea.repository.remote.RemoteRepo
@@ -7,8 +8,11 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 
-@Module(includes = [NetworkModule::class])
-class ApiModule {
+@Module(
+    includes = [
+        NetworkModule::class]
+)
+class SeaCreatureModule {
 
     @Provides
     fun provideApiService(retrofit: Retrofit): ApiService {
