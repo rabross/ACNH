@@ -1,14 +1,15 @@
 package com.rabross.acnh
 
-import com.rabross.acnh.di.DaggerAppComponent
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import android.app.Application
+import com.rabross.acnh.core.di.CoreComponent
+import com.rabross.acnh.core.di.CoreComponentProvider
+import com.rabross.acnh.core.di.DaggerCoreComponent
 
-class App : DaggerApplication() {
+class App : Application(), CoreComponentProvider {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder()
-            .application(this)
-            .build()
+    override val coreComponent: CoreComponent by lazy {
+        DaggerCoreComponent
+            .factory()
+            .create(applicationContext)
     }
 }

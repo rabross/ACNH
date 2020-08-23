@@ -1,4 +1,4 @@
-package com.rabross.acnh.data
+package com.rabross.acnh.core.network
 
 import io.reactivex.Scheduler
 

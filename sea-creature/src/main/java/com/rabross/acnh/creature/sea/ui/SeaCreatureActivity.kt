@@ -1,26 +1,26 @@
-package com.rabross.acnh.ui
+package com.rabross.acnh.creature.sea.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import com.rabross.acnh.R
-import dagger.android.AndroidInjection
-import kotlinx.android.synthetic.main.main_layout.*
+import com.rabross.acnh.creature.sea.R
+import com.rabross.acnh.creature.sea.di.inject
+import kotlinx.android.synthetic.main.sea_creature_layout.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class SeaCreatureActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val viewModel by viewModels<MainViewModel> { viewModelFactory }
+    private val viewModel by viewModels<SeaCreatureViewModel> { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
+        inject()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_layout)
+        setContentView(R.layout.sea_creature_layout)
         viewModel.seaCreatures.observe(this) { seaCreatures ->
             text.text = seaCreatures.toString()
         }

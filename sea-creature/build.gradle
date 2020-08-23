@@ -29,11 +29,24 @@ android {
         sourceCompatibility source_compatibility
         targetCompatibility target_compatibility
     }
+
+    kotlinOptions {
+        jvmTarget = jvm_target_version
+    }
 }
 
 dependencies {
     implementation project(':core')
     implementation project(':content')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "com.google.dagger:dagger-android:$dagger_android_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_android_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "androidx.activity:activity-ktx:$androidx_activity_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
 
     //Non-transitive
     kapt "com.google.dagger:dagger-android-processor:$dagger_android_version"

@@ -1,15 +1,15 @@
-package com.rabross.acnh.ui
+package com.rabross.acnh.creature.sea.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.rabross.acnh.content.creature.SeaCreatures
+import com.rabross.acnh.core.network.SchedulersProvider
 import com.rabross.acnh.creature.sea.usecases.GetSeaCreaturesUseCase
-import com.rabross.acnh.data.SchedulersProvider
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class SeaCreatureViewModel @Inject constructor(
     private val seaCreaturesUseCase: GetSeaCreaturesUseCase,
     private val schedulers: SchedulersProvider
 ) : ViewModel() {

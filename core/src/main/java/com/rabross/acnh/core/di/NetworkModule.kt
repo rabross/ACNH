@@ -1,6 +1,8 @@
 package com.rabross.acnh.core.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.rabross.acnh.core.network.SchedulersFacade
+import com.rabross.acnh.core.network.SchedulersProvider
 import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.UnstableDefault
@@ -36,4 +38,7 @@ class NetworkModule {
             .client(okHttpClient)
             .build()
     }
+
+    @Provides
+    fun provideSchedulers(schedulersFacade: SchedulersFacade): SchedulersProvider = schedulersFacade
 }

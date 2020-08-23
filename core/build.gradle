@@ -40,6 +40,7 @@ android {
 dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_android_version"
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor_version"
     api "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -47,6 +48,7 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$kotlinx_serialization_converter_version"
     api "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
     api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinx_serialization_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
 
     //Non-transitive
     kapt "com.google.dagger:dagger-android-processor:$dagger_android_version"

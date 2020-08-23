@@ -1,1 +1,9 @@
-<manifest package="com.rabross.acnh.creature"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rabross.acnh.creature.sea">
+
+    <application>
+        <activity
+            android:name=".ui.SeaCreatureActivity"/>
+    </application>
+
+</manifest>
