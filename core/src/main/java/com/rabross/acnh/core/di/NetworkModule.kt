@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,8 +33,7 @@ class NetworkModule {
         val contentType = "application/json".toMediaType()
         return Retrofit.Builder()
             .baseUrl("https://acnhapi.com/")
-            .addConverterFactory(Json.asConverterFactory(contentType))
-            //.addConverterFactory(Json(JsonConfiguration(isLenient = true)).asConverterFactory(contentType))
+            .addConverterFactory(Json(JsonConfiguration(ignoreUnknownKeys = true)).asConverterFactory(contentType))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(okHttpClient)
             .build()

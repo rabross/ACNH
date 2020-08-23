@@ -7,8 +7,7 @@ import com.rabross.acnh.creature.sea.repository.Repo
 import io.reactivex.Single
 import javax.inject.Inject
 
-class RemoteRepo @Inject constructor(private val apiService: ApiService) :
-    Repo {
+class RemoteRepo @Inject constructor(private val apiService: ApiService) : Repo {
 
     override fun getCreatures(): Single<SeaCreatures> {
         return apiService.getSeaCreatures().map { seaCreatures ->

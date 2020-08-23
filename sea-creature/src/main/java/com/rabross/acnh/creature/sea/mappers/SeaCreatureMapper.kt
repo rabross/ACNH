@@ -8,7 +8,7 @@ import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
  */
 fun SeaCreature.toEntity(): SeaCreatureEntity {
     return SeaCreatureEntity(
-        id, name.name_EUen,
+        id, name.name,
         SeaCreatureEntity.Availability(
             availability.time_array,
             SeaCreatureEntity.Availability.Months(

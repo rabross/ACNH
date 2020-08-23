@@ -44,32 +44,6 @@ data class Availability(
 
 @Serializable
 data class Name(
-    @SerialName("name-CNzh")
-    val name_CNzh: String,
-    @SerialName("name-EUde")
-    val name_EUde: String,
     @SerialName("name-EUen")
-    val name_EUen: String,
-    @SerialName("name-EUes")
-    val name_EUes: String,
-    @SerialName("name-EUfr")
-    val name_EUfr: String,
-    @SerialName("name-EUit")
-    val name_EUit: String,
-    @SerialName("name-EUnl")
-    val name_EUnl: String,
-    @SerialName("name-EUru")
-    val name_EUru: String,
-    @SerialName("name-JPja")
-    val name_JPja: String,
-    @SerialName("name-KRko")
-    val name_KRko: String,
-    @SerialName("name-TWzh")
-    val name_TWzh: String,
-    @SerialName("name-USen")
-    val name_USen: String,
-    @SerialName("name-USes")
-    val name_USes: String,
-    @SerialName("name-USfr")
-    val name_USfr: String
+    val name: String
 )
