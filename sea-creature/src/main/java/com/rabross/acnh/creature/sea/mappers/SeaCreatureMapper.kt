@@ -3,9 +3,6 @@ package com.rabross.acnh.creature.sea.mappers
 import com.rabross.acnh.creature.sea.models.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
 
-/**
- * A mapper to map the ShareDataModel from server to ShareDetailsModel in a presentable form.
- */
 fun SeaCreature.toEntity(): SeaCreatureEntity {
     return SeaCreatureEntity(
         id, name.name,
