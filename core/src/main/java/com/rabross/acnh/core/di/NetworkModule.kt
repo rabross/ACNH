@@ -5,9 +5,8 @@ import com.rabross.acnh.core.network.SchedulersFacade
 import com.rabross.acnh.core.network.SchedulersProvider
 import dagger.Module
 import dagger.Provides
-import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -27,13 +26,14 @@ class NetworkModule {
             .build()
     }
 
-    @OptIn(UnstableDefault::class)
+    @ExperimentalSerializationApi
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         val contentType = "application/json".toMediaType()
+        val json = Json { ignoreUnknownKeys = true }
         return Retrofit.Builder()
             .baseUrl("https://acnhapi.com/")
-            .addConverterFactory(Json(JsonConfiguration(ignoreUnknownKeys = true)).asConverterFactory(contentType))
+            .addConverterFactory(json.asConverterFactory(contentType))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(okHttpClient)
             .build()
