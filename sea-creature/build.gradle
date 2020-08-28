@@ -46,6 +46,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:$kotlinx_serialization_version"
+    implementation "com.google.code.gson:gson:$gson_version"
 
     testImplementation "junit:junit:$test_junit_version"
     testImplementation "org.assertj:assertj-core:$test_assertj_version"
