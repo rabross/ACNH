@@ -18,10 +18,12 @@ class SeaCreatureViewModel @Inject constructor(
     val seaCreatures: LiveData<SeaCreatures> = _seaCreatures
     private val compositeDisposable = CompositeDisposable()
 
-    fun getSeaCreatures() {
+    fun fetchSeaCreatures() {
         seaCreaturesUseCase.execute()
             .subscribeOn(schedulers.io())
-            .subscribe { seaCreatures -> _seaCreatures.postValue(seaCreatures) }
+            .subscribe { seaCreatures ->
+                _seaCreatures.postValue(seaCreatures)
+            }
             .let { compositeDisposable.add(it) }
     }
 
