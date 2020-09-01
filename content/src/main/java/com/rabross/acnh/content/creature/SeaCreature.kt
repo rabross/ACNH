@@ -10,8 +10,8 @@ data class SeaCreature(
     val price: Int,
     val catchphrase: String,
     val museumphrase: String,
-    val image: String,
-    val icon: String
+    val imageUrl: String,
+    val iconUrl: String
 ) {
     data class Availability(val time: List<Int>, val months: Months) {
 

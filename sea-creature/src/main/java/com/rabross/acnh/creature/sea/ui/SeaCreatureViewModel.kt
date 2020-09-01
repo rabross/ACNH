@@ -14,7 +14,7 @@ class SeaCreatureViewModel @Inject constructor(
     private val schedulers: SchedulersProvider
 ) : ViewModel() {
 
-    private val _seaCreatures = MutableLiveData<SeaCreatures>()
+    private val _seaCreatures = MutableLiveData<SeaCreatures>(emptyList())
     val seaCreatures: LiveData<SeaCreatures> = _seaCreatures
     private val compositeDisposable = CompositeDisposable()
 

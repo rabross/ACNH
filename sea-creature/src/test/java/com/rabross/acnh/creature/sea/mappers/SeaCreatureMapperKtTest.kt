@@ -59,7 +59,7 @@ internal class SeaCreatureMapperKtTest {
         price = 0,
         catchphrase = "catchphrase",
         museumphrase = "museumphrase",
-        image = "imageUri",
-        icon = "iconUri"
+        imageUrl = "imageUri",
+        iconUrl = "iconUri"
     )
 }

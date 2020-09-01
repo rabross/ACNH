@@ -18,5 +18,5 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(SeaCreatureViewModel::class)
-    abstract fun SeaCreatureViewModel(viewModel: SeaCreatureViewModel): ViewModel
+    abstract fun seaCreatureViewModel(viewModel: SeaCreatureViewModel): ViewModel
 }

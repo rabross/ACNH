@@ -47,8 +47,10 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$dagger_android_version"
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation "androidx.activity:activity-ktx:$androidx_activity_version"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraint_layout_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
+    implementation "androidx.recyclerview:recyclerview:$androidx_recyclerview_version"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:$kotlinx_serialization_version"
     implementation "com.google.code.gson:gson:$gson_version"
 

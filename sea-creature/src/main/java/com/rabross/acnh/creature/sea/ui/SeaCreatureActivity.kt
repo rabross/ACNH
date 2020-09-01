@@ -23,7 +23,8 @@ class SeaCreatureActivity : AppCompatActivity() {
         binding = SeaCreaturesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.lifecycleOwner = this
-        binding.viewmodel = viewModel
+        binding.viewModel = viewModel
+        binding.adapter = SeaCreatureAdapter()
         viewModel.fetchSeaCreatures()
     }
 }

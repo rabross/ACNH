@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.rabross.acnh.creature.sea.ui.item.SeaCreature" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/sea_creature_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="sea creature icon"
+            app:layout_constraintBottom_toTopOf="@id/sea_creature_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:src="@android:drawable/ic_menu_help" />
+
+        <TextView
+            android:id="@+id/sea_creature_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sea_creature_icon"
+            tool:text="Sea Creature" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
