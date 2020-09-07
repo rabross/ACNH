@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.core.image.ImageViewBinding
 import com.rabross.acnh.core.viewmodel.ViewModelFactory
 import com.rabross.acnh.creature.sea.R
@@ -28,14 +30,13 @@ class SeaCreaturesFragment
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
         DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
         val binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.seaCreatureRecyclerview.apply {
             setHasFixedSize(true)
-            adapter = SeaCreatureAdapter()
+            adapter = SeaCreatureAdapter(::onItemClick)
             layoutManager =
                 GridLayoutManager(this.context, resources.getInteger(R.integer.sea_creatures_span))
             addItemDecoration(
@@ -46,5 +47,15 @@ class SeaCreaturesFragment
         }
         viewModel.fetchSeaCreatures()
         return binding.root
+    }
+
+    private fun onItemClick(seaCreature: SeaCreature) {
+        val action =
+            SeaCreaturesFragmentDirections.actionSeaCreaturesFragmentToSeaCreatureDetailsFragment()
+                .apply {
+                    seaCreatureName = seaCreature.name
+                    seaCreatureImageUrl = seaCreature.imageUrl
+                }
+        view?.findNavController()?.navigate(action)
     }
 }

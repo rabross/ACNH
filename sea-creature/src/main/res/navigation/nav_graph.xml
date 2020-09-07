@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/seaCreaturesFragment">
     <fragment
         android:id="@+id/seaCreaturesFragment"
         android:name="com.rabross.acnh.creature.sea.ui.SeaCreaturesFragment"
-        android:label="SeaCreaturesFragment" />
+        android:label="SeaCreaturesFragment">
+        <action
+            android:id="@+id/action_seaCreaturesFragment_to_seaCreatureDetailsFragment"
+            app:destination="@id/seaCreatureDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seaCreatureDetailsFragment"
+        android:name="com.rabross.acnh.creature.sea.ui.SeaCreatureDetailsFragment"
+        android:label="fragment_sea_creature_details"
+        tools:layout="@layout/fragment_sea_creature_details">
+        <argument
+            android:name="seaCreatureName"
+            android:defaultValue="nope"
+            app:argType="string" />
+        <argument
+            android:name="seaCreatureImageUrl"
+            android:defaultValue="nope"
+            app:argType="string" />
+    </fragment>
 </navigation>

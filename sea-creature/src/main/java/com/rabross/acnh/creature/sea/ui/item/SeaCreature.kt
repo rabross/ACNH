@@ -7,5 +7,5 @@ internal data class SeaCreature(val name: String, val iconUrl: String)
 
 internal fun SeaCreatureEntity.toSeaCreature() = SeaCreature(name.capitalizeWords(), iconUrl)
 
-private fun String.capitalizeWords() =
+fun String.capitalizeWords() =
     split(" ").joinToString(" ") { it.capitalize(Locale.getDefault()) }

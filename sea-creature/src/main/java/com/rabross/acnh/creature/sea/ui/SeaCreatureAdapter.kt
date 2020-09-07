@@ -3,18 +3,18 @@ package com.rabross.acnh.creature.sea.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.*
+import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.creature.sea.databinding.ItemSeaCreatureBinding
-import com.rabross.acnh.creature.sea.ui.item.SeaCreature
 import com.rabross.acnh.creature.sea.ui.item.SeaCreatureViewHolder
 import com.rabross.acnh.creature.sea.ui.item.toSeaCreature
 
-internal class SeaCreatureAdapter : RecyclerView.Adapter<SeaCreatureViewHolder>() {
+internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) : RecyclerView.Adapter<SeaCreatureViewHolder>() {
 
     private val listManager = createListManager()
 
     fun update(seaCreatures: SeaCreatures) {
-        listManager.submitList(seaCreatures.map { it.toSeaCreature() })
+        listManager.submitList(seaCreatures)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeaCreatureViewHolder {
@@ -24,7 +24,11 @@ internal class SeaCreatureAdapter : RecyclerView.Adapter<SeaCreatureViewHolder>(
     }
 
     override fun onBindViewHolder(holder: SeaCreatureViewHolder, position: Int) {
-        holder.binding.viewmodel = listManager.currentList[position]
+        val seaCreature = listManager.currentList[position]
+        holder.binding.viewModel = seaCreature.toSeaCreature()
+        holder.binding.root.setOnClickListener {
+            callback(seaCreature)
+        }
         holder.binding.executePendingBindings()
     }
 
@@ -37,9 +41,9 @@ internal class SeaCreatureAdapter : RecyclerView.Adapter<SeaCreatureViewHolder>(
 
     companion object : DiffUtil.ItemCallback<SeaCreature>() {
         override fun areItemsTheSame(oldItem: SeaCreature, newItem: SeaCreature): Boolean =
-            oldItem === newItem
+            oldItem == newItem
 
         override fun areContentsTheSame(oldItem: SeaCreature, newItem: SeaCreature): Boolean =
-            oldItem.name == newItem.name
+            oldItem.id == newItem.id
     }
 }

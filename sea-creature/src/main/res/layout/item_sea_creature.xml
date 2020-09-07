@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="viewmodel"
+            name="viewModel"
             type="com.rabross.acnh.creature.sea.ui.item.SeaCreature" />
     </data>
 
@@ -31,14 +31,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:loadUrl="@{viewmodel.iconUrl}" />
+                app:loadUrl="@{viewModel.iconUrl}" />
 
             <TextView
                 android:id="@+id/sea_creature_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@{viewmodel.name}"
+                android:text="@{viewModel.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
