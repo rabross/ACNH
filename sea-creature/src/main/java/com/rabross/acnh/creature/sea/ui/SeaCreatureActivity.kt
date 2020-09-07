@@ -5,7 +5,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.rabross.acnh.core.image.ImageViewBinding
+import com.rabross.acnh.creature.sea.R
 import com.rabross.acnh.creature.sea.databinding.SeaCreatureDataBindingComponent
 import com.rabross.acnh.creature.sea.databinding.SeaCreaturesBinding
 import com.rabross.acnh.creature.sea.di.inject
@@ -31,7 +33,17 @@ class SeaCreatureActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        binding.adapter = SeaCreatureAdapter()
+        binding.seaCreatureRecyclerview.apply {
+            setHasFixedSize(true)
+            adapter = SeaCreatureAdapter()
+            layoutManager =
+                GridLayoutManager(this.context, resources.getInteger(R.integer.sea_creatures_span))
+            addItemDecoration(
+                GridSpacingItemDecoration(
+                    resources.getDimension(R.dimen.sea_creatures_item_spacing).toInt()
+                )
+            )
+        }
         viewModel.fetchSeaCreatures()
     }
 }

@@ -7,17 +7,11 @@
         <variable
             name="viewModel"
             type="com.rabross.acnh.creature.sea.ui.SeaCreatureViewModel" />
-
-        <variable
-            name="adapter"
-            type="com.rabross.acnh.creature.sea.ui.SeaCreatureAdapter" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sea_creature_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        app:adapter="@{adapter}"
-        app:update="@{viewModel.seaCreatures}"/>
+        app:update="@{viewModel.seaCreatures}" />
 </layout>

@@ -10,34 +10,41 @@
             type="com.rabross.acnh.creature.sea.ui.item.SeaCreature" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp">
+        app:cardCornerRadius="@dimen/sea_creatures_item_card_corner_radius"
+        app:cardElevation="@dimen/sea_creatures_item_card_elevation">
 
-        <ImageView
-            android:id="@+id/sea_creature_icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:contentDescription="sea creature icon"
-            app:layout_constraintBottom_toTopOf="@id/sea_creature_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:loadUrl="@{viewmodel.iconUrl}"
-            tool:src="@android:drawable/ic_menu_help" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/sea_creatures_item_spacing">
 
-        <TextView
-            android:id="@+id/sea_creature_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{viewmodel.name}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sea_creature_icon"
-            tool:text="Sea Creature" />
+            <ImageView
+                android:id="@+id/sea_creature_icon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="sea creature icon"
+                app:layout_constraintBottom_toTopOf="@id/sea_creature_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadUrl="@{viewmodel.iconUrl}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/sea_creature_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{viewmodel.name}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sea_creature_icon"
+                tool:text="Sea Creature" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

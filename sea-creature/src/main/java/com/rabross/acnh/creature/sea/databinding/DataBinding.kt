@@ -6,6 +6,6 @@ import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.creature.sea.ui.SeaCreatureAdapter
 
 @BindingAdapter("update")
-fun RecyclerView.bindData(seaCreatures: SeaCreatures) {
+internal fun RecyclerView.bindData(seaCreatures: SeaCreatures) {
         (adapter as? SeaCreatureAdapter)?.update(seaCreatures)
 }

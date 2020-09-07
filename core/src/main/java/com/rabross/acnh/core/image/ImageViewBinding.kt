@@ -6,8 +6,8 @@ import androidx.databinding.BindingAdapter
 class ImageViewBinding(val imageLoader: ImageLoader) {
 
     @BindingAdapter("loadUrl")
-    fun loadImage(view: ImageView, url: String) {
-        imageLoader.load(view, url)
+    fun ImageView.loadImage(url: String) {
+        imageLoader.load(this, url)
     }
 }
 
