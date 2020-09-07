@@ -58,6 +58,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$androidx_recyclerview_version"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:$kotlinx_serialization_version"
     implementation "com.google.code.gson:gson:$gson_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$androidx_navigation_version"
 
     testImplementation "junit:junit:$test_junit_version"
     testImplementation "org.assertj:assertj-core:$test_assertj_version"

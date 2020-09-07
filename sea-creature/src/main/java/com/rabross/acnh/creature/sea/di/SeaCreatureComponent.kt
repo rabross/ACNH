@@ -10,6 +10,7 @@ import dagger.Component
     dependencies = [CoreComponent::class],
     modules = [
         SeaCreatureModule::class,
+        FragmentModule::class,
         ViewModelModule::class]
 )
 internal interface SeaCreatureComponent {
