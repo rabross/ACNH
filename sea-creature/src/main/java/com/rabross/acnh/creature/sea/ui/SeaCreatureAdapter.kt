@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.*
 import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreatures
+import com.rabross.acnh.core.ui.setOnSafeClickListener
 import com.rabross.acnh.creature.sea.databinding.ItemSeaCreatureBinding
 import com.rabross.acnh.creature.sea.ui.item.SeaCreatureViewHolder
 import com.rabross.acnh.creature.sea.ui.item.toSeaCreature
@@ -26,7 +27,7 @@ internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) :
     override fun onBindViewHolder(holder: SeaCreatureViewHolder, position: Int) {
         val seaCreature = listManager.currentList[position]
         holder.binding.viewModel = seaCreature.toSeaCreature()
-        holder.binding.root.setOnClickListener {
+        holder.binding.root.setOnSafeClickListener {
             callback(seaCreature)
         }
         holder.binding.executePendingBindings()
