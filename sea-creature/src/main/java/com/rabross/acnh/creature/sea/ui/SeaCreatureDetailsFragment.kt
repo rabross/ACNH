@@ -25,7 +25,7 @@ class SeaCreatureDetailsFragment
     ): View? {
         DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
         val binding = FragmentSeaCreatureDetailsBinding.inflate(layoutInflater)
-        binding.viewModel = SeaCreatureDetail(args.seaCreatureName, args.seaCreatureImageUrl)
+        binding.viewModel = args.seaCreatureDetail
         return binding.root
     }
 }

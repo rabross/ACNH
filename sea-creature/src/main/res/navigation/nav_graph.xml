@@ -18,12 +18,7 @@
         android:label="fragment_sea_creature_details"
         tools:layout="@layout/fragment_sea_creature_details">
         <argument
-            android:name="seaCreatureName"
-            android:defaultValue="nope"
-            app:argType="string" />
-        <argument
-            android:name="seaCreatureImageUrl"
-            android:defaultValue="nope"
-            app:argType="string" />
+            android:name="seaCreatureDetail"
+            app:argType="com.rabross.acnh.creature.sea.ui.SeaCreatureDetail" />
     </fragment>
 </navigation>

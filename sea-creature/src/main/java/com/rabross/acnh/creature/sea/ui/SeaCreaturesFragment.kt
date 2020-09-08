@@ -51,11 +51,11 @@ class SeaCreaturesFragment
 
     private fun onItemClick(seaCreature: SeaCreature) {
         val action =
-            SeaCreaturesFragmentDirections.actionSeaCreaturesFragmentToSeaCreatureDetailsFragment()
-                .apply {
-                    seaCreatureName = seaCreature.name
-                    seaCreatureImageUrl = seaCreature.imageUrl
-                }
+            SeaCreaturesFragmentDirections.actionSeaCreaturesFragmentToSeaCreatureDetailsFragment(
+                seaCreatureDetailDefault
+            ).apply {
+                seaCreatureDetail = seaCreature.toSeaCreatureDetail()
+            }
         view?.findNavController()?.navigate(action)
     }
 }
