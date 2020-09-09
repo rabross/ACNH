@@ -17,7 +17,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/sea_creatures_detail_margin">
 
             <ImageView
                 android:id="@+id/sea_creature_details_image"
@@ -36,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@{viewModel.name}"
+                app:layout_constraintBottom_toTopOf="@id/sea_creature_details_catchphrase"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sea_creature_details_image"
@@ -43,14 +45,29 @@
 
             <TextView
                 android:id="@+id/sea_creature_details_catchphrase"
+                style="@style/sea_creature_detail_catchphrase"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="@{viewModel.catchphrase}"
+                android:text="@{@string/sea_creature_catchquote_template(viewModel.catchphrase)}"
+                app:layout_constraintBottom_toTopOf="@id/sea_creature_details_speed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sea_creature_details_name"
                 tools:text="sea creature catchphrase" />
+
+            <TextView
+                android:id="@+id/sea_creature_details_speed"
+                style="@style/sea_creature_detail_speed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@{@string/sea_creature_speed_template(viewModel.speed)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sea_creature_details_catchphrase"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="speed" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

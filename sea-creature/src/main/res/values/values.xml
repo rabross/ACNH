@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="sea_creatures_item_spacing">24dp</dimen>
+    <dimen name="standard_spacing">24dp</dimen>
+    <dimen name="sea_creatures_item_spacing">@dimen/standard_spacing</dimen>
     <dimen name="sea_creatures_item_card_corner_radius">8dp</dimen>
     <dimen name="sea_creatures_item_card_elevation">8dp</dimen>
+    <dimen name="sea_creatures_detail_margin">@dimen/standard_spacing</dimen>
+    <dimen name="sea_creature_detail_name_size">36sp</dimen>
+    <dimen name="sea_creature_detail_catchphrase_size">24sp</dimen>
+    <dimen name="sea_creature_detail_speed_size">16sp</dimen>
     <integer name="sea_creatures_span">2</integer>
-    <dimen name="sea_creature_detail_name_size">24sp</dimen>
 </resources>

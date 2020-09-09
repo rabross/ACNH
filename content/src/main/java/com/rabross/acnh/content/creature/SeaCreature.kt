@@ -7,6 +7,7 @@ data class SeaCreature(
     val name: String,
     val availability: Availability,
     val shadow: Shadow,
+    val speed: String,
     val price: Int,
     val catchphrase: String,
     val museumphrase: String,

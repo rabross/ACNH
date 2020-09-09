@@ -13,7 +13,7 @@ fun SeaCreature.toEntity(): SeaCreatureEntity {
                 availability.month_array_southern
             )
         ),
-        shadow.toShadow(),
+        shadow.toShadow(), speed,
         price, catchPhrase, museumPhrase, imageUri, iconUri
     )
 }

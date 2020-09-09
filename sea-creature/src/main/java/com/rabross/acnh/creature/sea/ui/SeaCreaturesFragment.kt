@@ -52,7 +52,7 @@ class SeaCreaturesFragment
     private fun onItemClick(seaCreature: SeaCreature) {
         val action =
             SeaCreaturesFragmentDirections.actionSeaCreaturesFragmentToSeaCreatureDetailsFragment(
-                seaCreatureDetailDefault
+                SeaCreatureDetail()
             ).apply {
                 seaCreatureDetail = seaCreature.toSeaCreatureDetail()
             }
