@@ -21,9 +21,10 @@ class SeaCreaturesFragment
 @Inject constructor(
     private val viewModelFactory: ViewModelFactory,
     private val imageViewBinding: ImageViewBinding
-) : Fragment() {
+) : Fragment(), SearchHandler {
 
     private val viewModel by viewModels<SeaCreatureViewModel> { viewModelFactory }
+    private lateinit var binding: FragmentSeaCreaturesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +32,7 @@ class SeaCreaturesFragment
         savedInstanceState: Bundle?
     ): View? {
         DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
-        val binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
+        binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.seaCreatureRecyclerview.apply {
@@ -57,5 +58,9 @@ class SeaCreaturesFragment
                 seaCreatureDetail = seaCreature.toSeaCreatureDetail()
             }
         view?.findNavController()?.navigate(action)
+    }
+
+    override fun onSearchQuery(query: String) {
+        (binding.seaCreatureRecyclerview.adapter as SeaCreatureAdapter).filter(query)
     }
 }

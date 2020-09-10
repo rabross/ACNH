@@ -10,12 +10,20 @@ import com.rabross.acnh.creature.sea.databinding.ItemSeaCreatureBinding
 import com.rabross.acnh.creature.sea.ui.item.SeaCreatureViewHolder
 import com.rabross.acnh.creature.sea.ui.item.toSeaCreature
 
-internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) : RecyclerView.Adapter<SeaCreatureViewHolder>() {
+internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) :
+    RecyclerView.Adapter<SeaCreatureViewHolder>() {
 
     private val listManager = createListManager()
+    private var updatedItems = emptyList<SeaCreature>()
 
     fun update(seaCreatures: SeaCreatures) {
+        updatedItems = seaCreatures
         listManager.submitList(seaCreatures)
+    }
+
+    fun filter(filter: String) {
+        if(filter.isBlank()) listManager.submitList(updatedItems)
+        else listManager.submitList(updatedItems.filter { it.name.contains(filter, true) })
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeaCreatureViewHolder {
