@@ -22,10 +22,16 @@ class SeaCreatureViewModel @Inject constructor(
     fun fetchSeaCreatures() {
         seaCreaturesUseCase.execute()
             .subscribeOn(schedulers.io())
-            .subscribe { seaCreatures ->
+            .doOnSuccess { seaCreatures ->
                 _seaCreatures.postValue(seaCreatures)
             }
-            .let { compositeDisposable.add(it) }
+            .onErrorReturn {
+                emptyList()
+            }
+            .doOnSubscribe {
+                compositeDisposable.add(it)
+            }
+            .subscribe()
     }
 
     override fun onCleared() {
