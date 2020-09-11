@@ -3,22 +3,15 @@
 # ACNH
 An app to try out Android frameworks and features (e.g. Jetpack)
 
-Animal Crossing: New Horizons themed because I'm playing that just now.
-
+Animal Crossing: New Horizons themed because I'm playing that just now.\
 Built around data from https://github.com/alexislours/ACNHAPI
 
-Notable frameworks and libraries:
-
-* [Dagger](https://dagger.dev/)
-
-* [ReactiveX](http://reactivex.io/)
-
-* [Kotlin serialization](https://github.com/Kotlin/kotlinx.serialization)
-
-* [Data Binding](https://developer.android.com/topic/libraries/data-binding)
-
-* [Navigation Component](https://developer.android.com/guide/navigation)
-
-* [Safe Args](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args)
-
-* [RetroFit](https://square.github.io/retrofit/)
+### Notable frameworks and libraries
+- [Dagger](https://dagger.dev/)
+- [ReactiveX](http://reactivex.io/)
+- [Kotlin serialization](https://github.com/Kotlin/kotlinx.serialization)
+- [Data Binding](https://developer.android.com/topic/libraries/data-binding)
+- [Navigation Component](https://developer.android.com/guide/navigation)
+- [Safe Args](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args)
+- [RetroFit](https://square.github.io/retrofit/)
+- [Bitrise](https://www.bitrise.io/)
