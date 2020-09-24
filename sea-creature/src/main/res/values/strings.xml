@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="error">No data</string>
     <string name="sea_creature_catchquote_template">\"%1$s\"</string>
     <string name="sea_creature_speed_template">Speed: %1$s</string>
 </resources>
