@@ -61,6 +61,8 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$androidx_navigation_version"
+    implementation "androidx.paging:paging-runtime-ktx:$androidx_paging_version"
+    implementation "androidx.paging:paging-rxjava2-ktx:$androidx_paging_version"
 
     testImplementation "junit:junit:$test_junit_version"
     testImplementation "org.assertj:assertj-core:$test_assertj_version"
