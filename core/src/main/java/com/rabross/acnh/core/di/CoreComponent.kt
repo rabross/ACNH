@@ -19,6 +19,7 @@ interface CoreComponent {
         fun create(@BindsInstance applicationContext: Context): CoreComponent
     }
 
+    fun context(): Context
     fun retrofit(): Retrofit
     fun schedulers(): SchedulersProvider
     fun image(): ImageViewBinding
