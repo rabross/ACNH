@@ -1,4 +1,4 @@
-package com.rabross.acnh.creature.sea.ui
+package com.rabross.acnh.creature.sea.model
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,7 @@ import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.core.ui.setOnSafeClickListener
 import com.rabross.acnh.creature.sea.databinding.ItemSeaCreatureBinding
-import com.rabross.acnh.creature.sea.ui.item.SeaCreatureViewHolder
-import com.rabross.acnh.creature.sea.ui.item.toSeaCreature
+import com.rabross.acnh.creature.sea.ui.model.toSeaCreature
 
 internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) : RecyclerView.Adapter<SeaCreatureViewHolder>() {
 

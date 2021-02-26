@@ -15,6 +15,10 @@ import com.rabross.acnh.core.viewmodel.ViewModelFactory
 import com.rabross.acnh.creature.sea.R
 import com.rabross.acnh.creature.sea.databinding.FragmentSeaCreaturesBinding
 import com.rabross.acnh.creature.sea.databinding.SeaCreatureDataBindingComponent
+import com.rabross.acnh.creature.sea.model.SeaCreatureAdapter
+import com.rabross.acnh.creature.sea.ui.model.SeaCreatureDetail
+import com.rabross.acnh.creature.sea.ui.model.toSeaCreatureDetail
+import com.rabross.acnh.creature.sea.ui.util.GridSpacingItemDecoration
 import javax.inject.Inject
 
 class SeaCreaturesFragment
@@ -30,6 +34,7 @@ class SeaCreaturesFragment
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
         val binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
@@ -45,8 +50,12 @@ class SeaCreaturesFragment
                 )
             )
         }
-        viewModel.fetchSeaCreatures()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.fetchSeaCreatures()
     }
 
     private fun onItemClick(seaCreature: SeaCreature) {

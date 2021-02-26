@@ -1,4 +1,4 @@
-package com.rabross.acnh.creature.sea.ui.item
+package com.rabross.acnh.creature.sea.ui.model
 
 import java.util.*
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity

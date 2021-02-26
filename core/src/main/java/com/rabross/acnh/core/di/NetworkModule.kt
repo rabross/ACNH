@@ -45,7 +45,7 @@ class NetworkModule {
 
     @Provides
     fun provideRetrofit(
-        @Named("gson") converterFactory: Converter.Factory,
+        @Named("serialization") converterFactory: Converter.Factory,
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()

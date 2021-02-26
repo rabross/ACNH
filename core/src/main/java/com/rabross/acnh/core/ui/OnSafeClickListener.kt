@@ -11,7 +11,7 @@ class OnSafeClickListener : View.OnClickListener {
     }
 
     constructor(listener: (View) -> Unit) {
-        onClickListener = View.OnClickListener { listener.invoke(it) }
+        onClickListener = View.OnClickListener { listener(it) }
     }
 
     override fun onClick(v: View) {

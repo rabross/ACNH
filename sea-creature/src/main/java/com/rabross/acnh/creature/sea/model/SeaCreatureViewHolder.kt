@@ -1,4 +1,4 @@
-package com.rabross.acnh.creature.sea.ui.item
+package com.rabross.acnh.creature.sea.model
 
 import androidx.recyclerview.widget.RecyclerView
 import com.rabross.acnh.creature.sea.databinding.ItemSeaCreatureBinding

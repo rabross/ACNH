@@ -1,6 +1,5 @@
-package com.rabross.acnh.creature.sea.ui
+package com.rabross.acnh.creature.sea.ui.model
 
-import com.rabross.acnh.creature.sea.ui.item.capitalizeWords
 import java.io.Serializable
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
 

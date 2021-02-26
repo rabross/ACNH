@@ -1,4 +1,4 @@
-package com.rabross.acnh.creature.sea.ui
+package com.rabross.acnh.creature.sea.ui.util
 
 import android.graphics.Rect
 import android.view.View

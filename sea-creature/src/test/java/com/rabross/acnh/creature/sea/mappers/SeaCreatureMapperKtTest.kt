@@ -1,8 +1,8 @@
 package com.rabross.acnh.creature.sea.mappers
 
-import com.rabross.acnh.creature.sea.models.Availability
-import com.rabross.acnh.creature.sea.models.Name
-import com.rabross.acnh.creature.sea.models.SeaCreature
+import com.rabross.acnh.creature.sea.repository.model.Availability
+import com.rabross.acnh.creature.sea.repository.model.Name
+import com.rabross.acnh.creature.sea.repository.model.SeaCreature
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
@@ -60,6 +60,7 @@ internal class SeaCreatureMapperKtTest {
         catchphrase = "catchphrase",
         museumphrase = "museumphrase",
         imageUrl = "imageUri",
-        iconUrl = "iconUri"
+        iconUrl = "iconUri",
+        speed = "speed"
     )
 }

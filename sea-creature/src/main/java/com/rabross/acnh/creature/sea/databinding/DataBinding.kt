@@ -5,7 +5,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.rabross.acnh.creature.sea.ui.SeaCreatureAdapter
+import com.rabross.acnh.creature.sea.model.SeaCreatureAdapter
 import com.rabross.acnh.creature.sea.ui.SeaCreatureViewState
 
 @BindingAdapter("update")

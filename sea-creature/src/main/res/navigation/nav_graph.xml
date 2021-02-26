@@ -19,6 +19,6 @@
         tools:layout="@layout/fragment_sea_creature_details">
         <argument
             android:name="seaCreatureDetail"
-            app:argType="com.rabross.acnh.creature.sea.ui.SeaCreatureDetail" />
+            app:argType="com.rabross.acnh.creature.sea.ui.model.SeaCreatureDetail" />
     </fragment>
 </navigation>

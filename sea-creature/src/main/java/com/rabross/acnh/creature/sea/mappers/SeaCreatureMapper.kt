@@ -1,6 +1,6 @@
 package com.rabross.acnh.creature.sea.mappers
 
-import com.rabross.acnh.creature.sea.models.SeaCreature
+import com.rabross.acnh.creature.sea.repository.model.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
 
 fun SeaCreature.toEntity(): SeaCreatureEntity {
