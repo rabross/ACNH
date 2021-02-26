@@ -8,8 +8,8 @@ import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.core.network.SchedulersProvider
 import com.rabross.acnh.creature.sea.usecases.GetSeaCreaturesUseCase
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,12 +24,11 @@ class SeaCreatureViewModel @Inject constructor(
 
     fun fetchSeaCreatures() {
         viewModelScope.launch {
-            seaCreaturesUseCase.execute()
+            val seaCreatures = seaCreaturesUseCase.execute()
                 .onStart { _seaCreatures.value = SeaCreatureViewState.Loading }
                 .catch { _seaCreatures.value = SeaCreatureViewState.Error }
-                .collect { seaCreatures ->
-                _seaCreatures.value = SeaCreatureViewState.Loaded(seaCreatures)
-            }
+                .single()
+            _seaCreatures.value = SeaCreatureViewState.Loaded(seaCreatures)
         }
     }
 }
