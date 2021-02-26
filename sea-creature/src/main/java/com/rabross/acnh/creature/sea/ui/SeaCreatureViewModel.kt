@@ -1,13 +1,16 @@
 package com.rabross.acnh.creature.sea.ui
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.core.network.SchedulersProvider
 import com.rabross.acnh.creature.sea.usecases.GetSeaCreaturesUseCase
-import io.reactivex.disposables.CompositeDisposable
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SeaCreatureViewModel @Inject constructor(
@@ -15,31 +18,19 @@ class SeaCreatureViewModel @Inject constructor(
     private val schedulers: SchedulersProvider
 ) : ViewModel() {
 
-    private val compositeDisposable = CompositeDisposable()
     private val _seaCreatures = MutableLiveData<SeaCreatureViewState>()
     val seaCreatures: LiveData<SeaCreatureViewState>
         get() = _seaCreatures
 
-    @SuppressLint("CheckResult")
     fun fetchSeaCreatures() {
-        seaCreaturesUseCase.execute()
-            .subscribeOn(schedulers.io())
-            .observeOn(schedulers.ui())
-            .doOnSubscribe {
-                _seaCreatures.value = SeaCreatureViewState.Loading
-                compositeDisposable.add(it)
+        viewModelScope.launch {
+            seaCreaturesUseCase.execute()
+                .onStart { _seaCreatures.value = SeaCreatureViewState.Loading }
+                .catch { _seaCreatures.value = SeaCreatureViewState.Error }
+                .collect { seaCreatures ->
+                _seaCreatures.value = SeaCreatureViewState.Loaded(seaCreatures)
             }
-            .subscribe(
-                { seaCreatures ->
-                    _seaCreatures.value = SeaCreatureViewState.Loaded(seaCreatures)
-                },
-                {
-                    _seaCreatures.value = SeaCreatureViewState.Error
-                })
-    }
-
-    override fun onCleared() {
-        compositeDisposable.clear()
+        }
     }
 }
 
