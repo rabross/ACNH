@@ -1,10 +1,8 @@
 package com.rabross.acnh.core.di
 
 import android.content.Context
-import androidx.databinding.DataBindingComponent
-import com.rabross.acnh.core.image.ImageLoader
 import com.rabross.acnh.core.image.ImageViewBinding
-import com.rabross.acnh.core.network.SchedulersProvider
+import com.rabross.acnh.core.network.DispatchersProvider
 import dagger.BindsInstance
 import dagger.Component
 import retrofit2.Retrofit
@@ -20,6 +18,6 @@ interface CoreComponent {
     }
 
     fun retrofit(): Retrofit
-    fun schedulers(): SchedulersProvider
+    fun dispatchers(): DispatchersProvider
     fun image(): ImageViewBinding
 }

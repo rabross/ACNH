@@ -1,7 +1,7 @@
 package com.rabross.acnh.creature.sea.usecases
 
-import io.reactivex.Single
+import kotlinx.coroutines.flow.Flow
 
 interface SingleUseCase<R> {
-    fun execute(): Single<R>
+    fun execute(): Flow<R>
 }
