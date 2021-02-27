@@ -29,14 +29,16 @@ class SeaCreaturesFragment
 
     private val viewModel by viewModels<SeaCreatureViewModel> { viewModelFactory }
 
+    private var _binding: FragmentSeaCreaturesBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
-        val binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
+        _binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.seaCreatureRecyclerview.apply {
@@ -56,6 +58,11 @@ class SeaCreaturesFragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.fetchSeaCreatures()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun onItemClick(seaCreature: SeaCreature) {
