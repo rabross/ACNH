@@ -9,6 +9,7 @@ Built around data from https://github.com/alexislours/ACNHAPI
 ### Notable frameworks and libraries
 - [Dagger](https://dagger.dev/)
 - [ReactiveX](http://reactivex.io/)  ->  [Flow](https://kotlinlang.org/docs/flow.html) 
+- [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)  ->  [StateFlow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/) 
 - [GSON](https://github.com/google/gson)  ->  [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
 - [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 - [Navigation Component](https://developer.android.com/guide/navigation)
