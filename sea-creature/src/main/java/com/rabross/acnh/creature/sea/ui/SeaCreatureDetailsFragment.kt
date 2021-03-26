@@ -19,11 +19,14 @@ class SeaCreatureDetailsFragment
 
     private val args: SeaCreatureDetailsFragmentArgs by navArgs()
 
+    init {
+        DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
+    ): View {
         val binding = FragmentSeaCreatureDetailsBinding.inflate(layoutInflater)
         binding.viewModel = args.seaCreatureDetail
         return binding.root
