@@ -32,12 +32,15 @@ class SeaCreaturesFragment
     private var _binding: FragmentSeaCreaturesBinding? = null
     private val binding get() = _binding!!
 
+    init {
+        DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
+    ): View {
         _binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel

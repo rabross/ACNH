@@ -22,10 +22,10 @@ allprojects {
     }
 
     ext {
-        jvm_target_version = JavaVersion.VERSION_1_8.toString()
+        jvm_target_version = JavaVersion.VERSION_11.toString()
 
-        source_compatibility = JavaVersion.VERSION_1_8
-        target_compatibility = JavaVersion.VERSION_1_8
+        source_compatibility = JavaVersion.VERSION_11
+        target_compatibility = JavaVersion.VERSION_11
 
         android_compile_sdk_version = 30
         android_build_tools_version = '29.0.3'
