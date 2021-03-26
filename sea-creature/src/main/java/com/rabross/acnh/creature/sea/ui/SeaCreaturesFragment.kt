@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.core.image.ImageViewBinding
 import com.rabross.acnh.core.viewmodel.ViewModelFactory
@@ -24,7 +23,7 @@ import javax.inject.Inject
 class SeaCreaturesFragment
 @Inject constructor(
     private val viewModelFactory: ViewModelFactory,
-    private val imageViewBinding: ImageViewBinding
+    imageViewBinding: ImageViewBinding
 ) : Fragment() {
 
     private val viewModel by viewModels<SeaCreatureViewModel> { viewModelFactory }
@@ -42,25 +41,21 @@ class SeaCreaturesFragment
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSeaCreaturesBinding.inflate(layoutInflater)
-        binding.lifecycleOwner = this
-        binding.viewModel = viewModel
-        binding.seaCreatureRecyclerview.apply {
-            setHasFixedSize(true)
-            adapter = SeaCreatureAdapter(::onItemClick)
-            layoutManager =
-                GridLayoutManager(this.context, resources.getInteger(R.integer.sea_creatures_span))
-            addItemDecoration(
-                GridSpacingItemDecoration(
-                    resources.getDimension(R.dimen.sea_creatures_item_spacing).toInt()
-                )
-            )
-        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        setupRecyclerView()
         viewModel.fetchSeaCreatures()
+    }
+
+    private fun setupRecyclerView() = with(binding.seaCreatureRecyclerview) {
+        adapter = SeaCreatureAdapter(::onItemClick)
+        addItemDecoration(GridSpacingItemDecoration(resources.getDimensionPixelSize(R.dimen.sea_creatures_item_spacing)))
+        setHasFixedSize(true)
     }
 
     override fun onDestroyView() {

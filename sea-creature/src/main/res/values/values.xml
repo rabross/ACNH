@@ -8,5 +8,5 @@
     <dimen name="sea_creature_detail_name_size">36sp</dimen>
     <dimen name="sea_creature_detail_catchphrase_size">24sp</dimen>
     <dimen name="sea_creature_detail_speed_size">16sp</dimen>
-    <integer name="sea_creatures_span">2</integer>
+    <integer name="sea_creatures_span_count">2</integer>
 </resources>

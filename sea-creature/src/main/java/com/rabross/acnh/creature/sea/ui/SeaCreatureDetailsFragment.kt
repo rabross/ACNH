@@ -13,11 +13,9 @@ import com.rabross.acnh.creature.sea.databinding.SeaCreatureDataBindingComponent
 import javax.inject.Inject
 
 class SeaCreatureDetailsFragment
-@Inject constructor(
-    private val imageViewBinding: ImageViewBinding
-) : Fragment() {
+@Inject constructor(imageViewBinding: ImageViewBinding) : Fragment() {
 
-    private val args: SeaCreatureDetailsFragmentArgs by navArgs()
+    private val args by navArgs<SeaCreatureDetailsFragmentArgs>()
 
     init {
         DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
