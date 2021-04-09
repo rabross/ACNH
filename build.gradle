@@ -45,8 +45,6 @@ allprojects {
         androidx_navigation_version = '2.3.3'
         dagger_version = '2.32'
         dagger_android_version = '2.25.2'
-        rxkotlin_version = '2.3.0'
-        rxandroid_version = '2.1.1'
         retrofit_version = '2.9.0'
         kotlinx_serialization_version = '1.0.0'
         kotlinx_serialization_converter_version = '0.8.0'
