@@ -27,11 +27,3 @@ class OnSafeClickListener : View.OnClickListener {
         private var previousClickTimeMillis = 0L
     }
 }
-
-fun View.setOnSafeClickListener(OnClickListener: View.OnClickListener) {
-    setOnClickListener(OnSafeClickListener(OnClickListener))
-}
-
-fun View.setOnSafeClickListener(OnClickListener: (View) -> Unit) {
-    setOnClickListener(OnSafeClickListener(OnClickListener))
-}
