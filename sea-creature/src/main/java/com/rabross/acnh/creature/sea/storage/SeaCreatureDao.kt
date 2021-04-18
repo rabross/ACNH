@@ -13,10 +13,10 @@ interface SeaCreatureDao {
     fun getSeaCreature(id: Int): Flow<SeaCreature>
 
     @Query("SELECT * from sea_creature_table ORDER BY id ASC")
-    fun getSeaCreatures(): Flow<List<SeaCreature>>
+    fun getSeaCreatures(): Flow<SeaCreatures>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(seaCreatures: List<SeaCreature>)
+    suspend fun insertAll(seaCreatures: SeaCreatures)
 
     @Query("DELETE FROM sea_creature_table")
     suspend fun deleteAll()

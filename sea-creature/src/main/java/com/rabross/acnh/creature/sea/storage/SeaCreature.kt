@@ -1,8 +1,9 @@
 package com.rabross.acnh.creature.sea.storage
 
 import androidx.room.*
-import com.rabross.acnh.content.creature.SeaCreature
 import kotlinx.serialization.Serializable
+
+typealias SeaCreatures = List<SeaCreature>
 
 @Entity(tableName = "sea_creature_table")
 data class SeaCreature(
