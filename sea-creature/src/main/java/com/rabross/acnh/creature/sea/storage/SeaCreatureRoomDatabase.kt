@@ -20,19 +20,16 @@ abstract class SeaCreatureRoomDatabase : RoomDatabase() {
         private var INSTANCE: SeaCreatureRoomDatabase? = null
 
         fun getDatabase(context: Context): SeaCreatureRoomDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
-            }
-            synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    SeaCreatureRoomDatabase::class.java,
-                    DATABASE_NAME
-                ).build()
-                INSTANCE = instance
-                return instance
-            }
+            return INSTANCE ?:
+                synchronized(this) {
+                    val instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        SeaCreatureRoomDatabase::class.java,
+                        DATABASE_NAME
+                    ).build()
+                    INSTANCE = instance
+                    instance
+                }
         }
     }
 }
