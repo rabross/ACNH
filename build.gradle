@@ -58,6 +58,7 @@ allprojects {
 
         test_junit_version = '4.13.1'
         test_assertj_version = '3.15.0'
+        test_mockito_kotlin_version = '3.1.0'
 
         androidx_android_junit_runner = 'androidx.test.runner.AndroidJUnitRunner'
     }
