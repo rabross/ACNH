@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.single
+import timber.log.Timber
 import javax.inject.Inject
 
 class SeaCreatureRepo @Inject constructor(
@@ -14,8 +15,11 @@ class SeaCreatureRepo @Inject constructor(
 
     override fun get(): Flow<SeaCreatures> = flow {
         emit(
-            // TODO: 18/04/2021 add timber logs in <also> blocks
-            localRepo.get().first().getOrNull() ?: remoteRepo.get().single().apply { localRepo.put(this) }
+            localRepo.get().first().getOrNull()?.also {
+                Timber.d("${SeaCreatureRepo::class.simpleName} local")
+            } ?: remoteRepo.get().single().apply { localRepo.put(this) }.also {
+                Timber.d("${SeaCreatureRepo::class.simpleName} remote")
+            }
         )
     }
 }
