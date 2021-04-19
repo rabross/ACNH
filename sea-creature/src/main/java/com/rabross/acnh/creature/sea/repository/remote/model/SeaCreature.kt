@@ -1,4 +1,4 @@
-package com.rabross.acnh.creature.sea.repository.model
+package com.rabross.acnh.creature.sea.repository.remote.model
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
