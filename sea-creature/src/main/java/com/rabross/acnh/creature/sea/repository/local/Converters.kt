@@ -1,6 +1,7 @@
-package com.rabross.acnh.creature.sea.storage
+package com.rabross.acnh.creature.sea.repository.local
 
 import androidx.room.TypeConverter
+import com.rabross.acnh.creature.sea.repository.local.model.SeaCreature
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json

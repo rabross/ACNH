@@ -1,10 +1,11 @@
-package com.rabross.acnh.creature.sea.storage
+package com.rabross.acnh.creature.sea.repository.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.rabross.acnh.creature.sea.repository.local.model.SeaCreature
 
 @Database(entities = [SeaCreature::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

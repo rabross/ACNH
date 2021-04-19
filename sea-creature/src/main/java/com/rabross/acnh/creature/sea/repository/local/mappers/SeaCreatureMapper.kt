@@ -1,9 +1,9 @@
-package com.rabross.acnh.creature.sea.storage.mappers
+package com.rabross.acnh.creature.sea.repository.local.mappers
 
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
-import com.rabross.acnh.creature.sea.storage.SeaCreature as SeaCreatureDBEntity
+import com.rabross.acnh.creature.sea.repository.local.model.SeaCreature as SeaCreatureDBEntity
 
-fun SeaCreatureDBEntity.toEntity(): SeaCreatureEntity {
+internal fun SeaCreatureDBEntity.toEntity(): SeaCreatureEntity {
     return SeaCreatureEntity(
         id, name,
         availability.toEntity(),
@@ -12,7 +12,7 @@ fun SeaCreatureDBEntity.toEntity(): SeaCreatureEntity {
     )
 }
 
-fun SeaCreatureEntity.toDBEntity(): SeaCreatureDBEntity {
+internal fun SeaCreatureEntity.toDBEntity(): SeaCreatureDBEntity {
     return SeaCreatureDBEntity(
         id, name,
         availability.toDBEntity(),

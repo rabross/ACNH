@@ -1,7 +1,7 @@
 package com.rabross.acnh.creature.sea.repository.remote
 
 import com.rabross.acnh.content.creature.SeaCreatures
-import com.rabross.acnh.creature.sea.mappers.toEntity
+import com.rabross.acnh.creature.sea.repository.remote.mappers.toEntity
 import com.rabross.acnh.creature.sea.repository.Repo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

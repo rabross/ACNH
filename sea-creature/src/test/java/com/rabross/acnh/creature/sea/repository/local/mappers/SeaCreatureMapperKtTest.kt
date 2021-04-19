@@ -1,9 +1,9 @@
-package com.rabross.acnh.creature.sea.storage.mappers
+package com.rabross.acnh.creature.sea.repository.local.mappers
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
-import com.rabross.acnh.creature.sea.storage.SeaCreature as SeaCreatureDBEntity
+import com.rabross.acnh.creature.sea.repository.local.model.SeaCreature as SeaCreatureDBEntity
 
 internal class SeaCreatureMapperKtTest {
 

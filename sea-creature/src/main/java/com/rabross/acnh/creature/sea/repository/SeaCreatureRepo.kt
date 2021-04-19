@@ -14,7 +14,8 @@ class SeaCreatureRepo @Inject constructor(
 
     override fun get(): Flow<SeaCreatures> = flow {
         emit(
-            localRepo.get().first().getOrNull() ?: remoteRepo.get().single().also { localRepo.put(it) }
+            // TODO: 18/04/2021 add timber logs in <also> blocks
+            localRepo.get().first().getOrNull() ?: remoteRepo.get().single().apply { localRepo.put(this) }
         )
     }
 }

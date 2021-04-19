@@ -2,9 +2,8 @@ package com.rabross.acnh.creature.sea.repository.local
 
 import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.creature.sea.repository.Cache
-import com.rabross.acnh.creature.sea.storage.SeaCreatureDao
-import com.rabross.acnh.creature.sea.storage.mappers.toDBEntity
-import com.rabross.acnh.creature.sea.storage.mappers.toEntity
+import com.rabross.acnh.creature.sea.repository.local.mappers.toDBEntity
+import com.rabross.acnh.creature.sea.repository.local.mappers.toEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

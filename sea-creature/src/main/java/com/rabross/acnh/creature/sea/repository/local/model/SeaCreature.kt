@@ -1,4 +1,4 @@
-package com.rabross.acnh.creature.sea.storage
+package com.rabross.acnh.creature.sea.repository.local.model
 
 import androidx.room.*
 import kotlinx.serialization.Serializable

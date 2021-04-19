@@ -1,9 +1,11 @@
-package com.rabross.acnh.creature.sea.storage
+package com.rabross.acnh.creature.sea.repository.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.rabross.acnh.creature.sea.repository.local.model.SeaCreature
+import com.rabross.acnh.creature.sea.repository.local.model.SeaCreatures
 import kotlinx.coroutines.flow.Flow
 
 @Dao

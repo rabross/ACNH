@@ -9,8 +9,8 @@ import com.rabross.acnh.creature.sea.repository.SeaCreatureRepo
 import com.rabross.acnh.creature.sea.repository.local.SeaCreatureLocalRepo
 import com.rabross.acnh.creature.sea.repository.remote.ApiService
 import com.rabross.acnh.creature.sea.repository.remote.SeaCreaturesRemoteRepo
-import com.rabross.acnh.creature.sea.storage.SeaCreatureDao
-import com.rabross.acnh.creature.sea.storage.SeaCreatureRoomDatabase
+import com.rabross.acnh.creature.sea.repository.local.SeaCreatureDao
+import com.rabross.acnh.creature.sea.repository.local.SeaCreatureRoomDatabase
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

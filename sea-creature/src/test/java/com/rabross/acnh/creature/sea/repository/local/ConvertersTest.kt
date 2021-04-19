@@ -1,7 +1,7 @@
-package com.rabross.acnh.creature.sea.storage
+package com.rabross.acnh.creature.sea.repository.local
 
-import org.junit.Assert.*
-
+import com.rabross.acnh.creature.sea.repository.local.model.SeaCreature
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class ConvertersTest {
