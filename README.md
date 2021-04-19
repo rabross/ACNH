@@ -15,4 +15,5 @@ Built around data from https://github.com/alexislours/ACNHAPI
 - [Navigation Component](https://developer.android.com/guide/navigation)
 - [Safe Args](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args)
 - [RetroFit](https://square.github.io/retrofit/)
+- [Room](https://developer.android.com/training/data-storage/room)
 - [Bitrise](https://www.bitrise.io/)
