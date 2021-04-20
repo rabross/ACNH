@@ -11,6 +11,9 @@ import com.rabross.acnh.creature.sea.repository.remote.ApiService
 import com.rabross.acnh.creature.sea.repository.remote.SeaCreaturesRemoteRepo
 import com.rabross.acnh.creature.sea.repository.local.SeaCreatureDao
 import com.rabross.acnh.creature.sea.repository.local.SeaCreatureRoomDatabase
+import com.rabross.acnh.creature.sea.repository.remote.RemoteRepo
+import com.rabross.acnh.creature.sea.usecases.GetSeaCreaturesUseCase
+import com.rabross.acnh.creature.sea.usecases.SingleUseCase
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -20,8 +23,20 @@ class SeaCreatureModule {
 
     @Provides
     @ActivityScope
-    fun provideRepo(apiService: ApiService, cache: Cache<SeaCreatures>): Repo<SeaCreatures> {
-        return SeaCreatureRepo(SeaCreaturesRemoteRepo(apiService), cache)
+    fun provideSeaCreatureUsecase(repo: Repo<SeaCreatures>): SingleUseCase<SeaCreatures> {
+        return GetSeaCreaturesUseCase(repo)
+    }
+
+    @Provides
+    @ActivityScope
+    fun provideRepo(remoteRepo: RemoteRepo<SeaCreatures>, localRepo: Cache<SeaCreatures>): Repo<SeaCreatures> {
+        return SeaCreatureRepo(remoteRepo, localRepo)
+    }
+
+    @Provides
+    @ActivityScope
+    fun provideRemoteRepo(apiService: ApiService): RemoteRepo<SeaCreatures> {
+        return SeaCreaturesRemoteRepo(apiService)
     }
 
     @Provides

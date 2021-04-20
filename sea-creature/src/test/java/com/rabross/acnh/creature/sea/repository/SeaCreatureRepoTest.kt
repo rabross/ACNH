@@ -2,19 +2,24 @@ package com.rabross.acnh.creature.sea.repository
 
 import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreatures
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 import org.assertj.core.api.Assertions.assertThat
 
+@ExperimentalCoroutinesApi
 class SeaCreatureRepoTest {
+
+    private val coroutineDispatcher = TestCoroutineDispatcher()
 
     @Test
     fun `given empty cache data is fetched from remote`() {
-        runBlocking {
+        coroutineDispatcher.runBlockingTest {
             val remoteRepo = mock<Repo<SeaCreatures>> {
                 on { get() } doReturn flow { emit(listOf(seaCreature)) }
             }
@@ -30,7 +35,7 @@ class SeaCreatureRepoTest {
 
     @Test
     fun `given available cache data is fetched from local`() {
-        runBlocking {
+        coroutineDispatcher.runBlockingTest {
             val remoteRepo = mock<Repo<SeaCreatures>>()
             val localRepo = mock<Cache<SeaCreatures>> {
                 on { get() } doReturn  flow { emit(listOf(seaCreature)) }

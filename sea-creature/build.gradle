@@ -63,6 +63,7 @@ dependencies {
     testImplementation "junit:junit:$test_junit_version"
     testImplementation "org.assertj:assertj-core:$test_assertj_version"
     testImplementation "org.mockito.kotlin:mockito-kotlin:$test_mockito_kotlin_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$test_coroutines_version"
 
     kapt "com.google.dagger:dagger-android-processor:$dagger_android_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"

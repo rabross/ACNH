@@ -1,17 +1,19 @@
 package com.rabross.acnh.creature.sea.ui
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.core.network.DispatchersProvider
-import com.rabross.acnh.creature.sea.usecases.GetSeaCreaturesUseCase
-import kotlinx.coroutines.flow.*
+import com.rabross.acnh.creature.sea.usecases.SingleUseCase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 class SeaCreatureViewModel @Inject constructor(
-    private val seaCreaturesUseCase: GetSeaCreaturesUseCase,
+    private val seaCreaturesUseCase: SingleUseCase<SeaCreatures>,
     private val dispatcher: DispatchersProvider
 ) : ViewModel() {
 
@@ -25,7 +27,7 @@ class SeaCreatureViewModel @Inject constructor(
                 _seaCreatures.value = SeaCreatureViewState.Loaded(seaCreaturesUseCase.execute().first())
             } catch (exception: Exception) {
                 _seaCreatures.value = SeaCreatureViewState.Error
-                Log.i("rob", "$exception")
+                Timber.d(exception)
             }
         }
     }

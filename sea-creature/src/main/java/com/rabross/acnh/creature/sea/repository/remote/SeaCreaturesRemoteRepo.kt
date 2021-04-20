@@ -7,10 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class SeaCreaturesRemoteRepo @Inject constructor(
-    private val apiService: ApiService
-) : Repo<SeaCreatures> {
-
+class SeaCreaturesRemoteRepo @Inject constructor(apiService: ApiService) : RemoteRepo<SeaCreatures>(apiService) {
     override fun get(): Flow<SeaCreatures> {
         return flow {
             emit(apiService.getSeaCreatures().map { seaCreature -> seaCreature.toEntity() })
