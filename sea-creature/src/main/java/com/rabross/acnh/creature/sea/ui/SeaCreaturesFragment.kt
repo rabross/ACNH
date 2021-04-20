@@ -15,14 +15,13 @@ import com.rabross.acnh.creature.sea.R
 import com.rabross.acnh.creature.sea.databinding.FragmentSeaCreaturesBinding
 import com.rabross.acnh.creature.sea.databinding.SeaCreatureDataBindingComponent
 import com.rabross.acnh.creature.sea.model.SeaCreatureAdapter
-import com.rabross.acnh.creature.sea.ui.model.SeaCreatureDetail
 import com.rabross.acnh.creature.sea.ui.model.toSeaCreatureDetail
 import com.rabross.acnh.creature.sea.ui.util.GridSpacingItemDecoration
 import javax.inject.Inject
 
 class SeaCreaturesFragment
 @Inject constructor(
-    private val viewModelFactory: ViewModelFactory,
+    viewModelFactory: ViewModelFactory,
     imageViewBinding: ImageViewBinding
 ) : Fragment() {
 
@@ -66,10 +65,8 @@ class SeaCreaturesFragment
     private fun onItemClick(seaCreature: SeaCreature) {
         val action =
             SeaCreaturesFragmentDirections.actionSeaCreaturesFragmentToSeaCreatureDetailsFragment(
-                SeaCreatureDetail()
-            ).apply {
-                seaCreatureDetail = seaCreature.toSeaCreatureDetail()
-            }
+                seaCreature.toSeaCreatureDetail()
+            )
         view?.findNavController()?.navigate(action)
     }
 }

@@ -17,6 +17,9 @@ class SeaCreatureDetailsFragment
 
     private val args by navArgs<SeaCreatureDetailsFragmentArgs>()
 
+    private var _binding: FragmentSeaCreatureDetailsBinding? = null
+    private val binding get() = _binding!!
+
     init {
         DataBindingUtil.setDefaultComponent(SeaCreatureDataBindingComponent(imageViewBinding))
     }
@@ -25,8 +28,13 @@ class SeaCreatureDetailsFragment
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentSeaCreatureDetailsBinding.inflate(layoutInflater)
+        _binding = FragmentSeaCreatureDetailsBinding.inflate(layoutInflater)
         binding.viewModel = args.seaCreatureDetail
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
