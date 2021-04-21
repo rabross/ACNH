@@ -7,7 +7,7 @@ import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreatures
 import com.rabross.acnh.core.setOnSafeClickListener
 import com.rabross.acnh.creature.sea.databinding.ItemSeaCreatureBinding
-import com.rabross.acnh.creature.sea.ui.model.toSeaCreature
+import com.rabross.acnh.creature.sea.ui.mappers.toSeaCreature
 
 internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) : RecyclerView.Adapter<SeaCreatureViewHolder>() {
 
