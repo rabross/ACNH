@@ -22,7 +22,7 @@ internal class SeaCreatureMapperKtTest {
         id = 0
         name = "name"
         availability {
-            time = listOf(7, 8, 9)
+            time = listOf(1, 2, 3)
             months {
                 northern = listOf(1, 2, 3)
                 southern = listOf(4, 5, 6)
@@ -32,8 +32,8 @@ internal class SeaCreatureMapperKtTest {
         price = 0
         catchphrase = "catchphrase"
         museumphrase = "museumphrase"
-        imageUrl = "imageUri"
-        iconUrl = "iconUri"
+        imageUrl = "imageUrl"
+        iconUrl = "iconUrl"
         speed = "speed"
     }
 
