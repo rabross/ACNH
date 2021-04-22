@@ -2,6 +2,7 @@ package com.rabross.acnh.creature.sea.repository
 
 import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreatures
+import com.rabross.acnh.content.creature.seaCreature
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
@@ -47,21 +48,22 @@ class SeaCreatureRepoTest {
         }
     }
 
-    private val seaCreature = SeaCreature(
-        id = 0,
-        name = "name",
-        availability = SeaCreature.Availability(
-            listOf(7, 8, 9),
-            SeaCreature.Availability.Months(
-                listOf(1, 2, 3), listOf(4, 5, 6)
-            )
-        ),
-        shadow = SeaCreature.Shadow.Unknown,
-        price = 0,
-        catchphrase = "catchphrase",
-        museumphrase = "museumphrase",
-        imageUrl = "imageUri",
-        iconUrl = "iconUri",
+    private val seaCreature = seaCreature {
+        id = 0
+        name = "name"
+        availability {
+            time = listOf(7, 8, 9)
+            months {
+                northern = listOf(1, 2, 3)
+                southern = listOf(4, 5, 6)
+            }
+        }
+        shadow = SeaCreature.Shadow.Unknown
+        price = 0
+        catchphrase = "catchphrase"
+        museumphrase = "museumphrase"
+        imageUrl = "imageUri"
+        iconUrl = "iconUri"
         speed = "speed"
-    )
+    }
 }

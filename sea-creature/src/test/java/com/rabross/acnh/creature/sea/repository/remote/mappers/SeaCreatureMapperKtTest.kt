@@ -1,5 +1,6 @@
 package com.rabross.acnh.creature.sea.repository.remote.mappers
 
+import com.rabross.acnh.content.creature.seaCreature
 import com.rabross.acnh.creature.sea.repository.remote.model.Availability
 import com.rabross.acnh.creature.sea.repository.remote.model.Name
 import com.rabross.acnh.creature.sea.repository.remote.model.SeaCreature
@@ -46,21 +47,22 @@ internal class SeaCreatureMapperKtTest {
         speed = "speed"
     )
 
-    private val expected = SeaCreatureEntity(
-        id = 0,
-        name = "name",
-        availability = SeaCreatureEntity.Availability(
-            listOf(7, 8, 9),
-            SeaCreatureEntity.Availability.Months(
-                listOf(1, 2, 3), listOf(4, 5, 6)
-            )
-        ),
-        shadow = SeaCreatureEntity.Shadow.Unknown,
-        price = 0,
-        catchphrase = "catchphrase",
-        museumphrase = "museumphrase",
-        imageUrl = "imageUri",
-        iconUrl = "iconUri",
+    private val expected = seaCreature {
+        id = 0
+        name = "name"
+        availability {
+            time = listOf(7, 8, 9)
+            months {
+                northern = listOf(1, 2, 3)
+                southern = listOf(4, 5, 6)
+            }
+        }
+        shadow = SeaCreatureEntity.Shadow.Unknown
+        price = 0
+        catchphrase = "catchphrase"
+        museumphrase = "museumphrase"
+        imageUrl = "imageUri"
+        iconUrl = "iconUri"
         speed = "speed"
-    )
+    }
 }

@@ -1,5 +1,6 @@
 package com.rabross.acnh.creature.sea.repository.local.mappers
 
+import com.rabross.acnh.content.creature.seaCreature
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity
@@ -17,23 +18,24 @@ internal class SeaCreatureMapperKtTest {
         assertThat(domain.toDBEntity()).isEqualTo(database)
     }
 
-    private val domain = SeaCreatureEntity(
-        id = 0,
-        name = "name",
-        availability = SeaCreatureEntity.Availability(
-            time = listOf(1, 2, 3),
-            months = SeaCreatureEntity.Availability.Months(
-                listOf(1, 2, 3), listOf(4, 5, 6)
-            )
-        ),
-        shadow = SeaCreatureEntity.Shadow.Unknown,
-        speed = "speed",
-        price = 0,
-        catchphrase = "catchphrase",
-        museumphrase = "museumphrase",
-        imageUrl = "imageUrl",
-        iconUrl = "iconUrl"
-    )
+    private val domain = seaCreature {
+        id = 0
+        name = "name"
+        availability {
+            time = listOf(7, 8, 9)
+            months {
+                northern = listOf(1, 2, 3)
+                southern = listOf(4, 5, 6)
+            }
+        }
+        shadow = SeaCreatureEntity.Shadow.Unknown
+        price = 0
+        catchphrase = "catchphrase"
+        museumphrase = "museumphrase"
+        imageUrl = "imageUri"
+        iconUrl = "iconUri"
+        speed = "speed"
+    }
 
     private val database = SeaCreatureDBEntity(
         id = 0,
