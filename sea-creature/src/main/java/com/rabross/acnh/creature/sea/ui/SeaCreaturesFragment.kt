@@ -7,15 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
-import com.rabross.acnh.content.creature.SeaCreature
+import androidx.navigation.fragment.findNavController
 import com.rabross.acnh.core.image.ImageViewBinding
 import com.rabross.acnh.core.viewmodel.ViewModelFactory
 import com.rabross.acnh.creature.sea.R
 import com.rabross.acnh.creature.sea.databinding.FragmentSeaCreaturesBinding
 import com.rabross.acnh.creature.sea.databinding.SeaCreatureDataBindingComponent
 import com.rabross.acnh.creature.sea.model.SeaCreatureAdapter
-import com.rabross.acnh.creature.sea.ui.mappers.toSeaCreatureDetail
 import com.rabross.acnh.creature.sea.ui.util.GridSpacingItemDecoration
 import javax.inject.Inject
 
@@ -49,10 +47,11 @@ class SeaCreaturesFragment
         binding.viewModel = viewModel
         setupRecyclerView()
         viewModel.fetchSeaCreatures()
+        viewModel.handleClicks { directions -> findNavController().navigate(directions) }
     }
 
     private fun setupRecyclerView() = with(binding.seaCreatureRecyclerview) {
-        adapter = SeaCreatureAdapter(::onItemClick)
+        adapter = SeaCreatureAdapter { seaCreature -> viewModel.onClick(seaCreature) }
         addItemDecoration(GridSpacingItemDecoration(resources.getDimensionPixelSize(R.dimen.sea_creatures_item_spacing)))
         setHasFixedSize(true)
     }
@@ -60,13 +59,5 @@ class SeaCreaturesFragment
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun onItemClick(seaCreature: SeaCreature) {
-        val action =
-            SeaCreaturesFragmentDirections.actionSeaCreaturesFragmentToSeaCreatureDetailsFragment(
-                seaCreature.toSeaCreatureDetail()
-            )
-        view?.findNavController()?.navigate(action)
     }
 }

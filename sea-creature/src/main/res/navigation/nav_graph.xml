@@ -9,7 +9,7 @@
         android:name="com.rabross.acnh.creature.sea.ui.SeaCreaturesFragment"
         android:label="SeaCreaturesFragment">
         <action
-            android:id="@+id/action_seaCreaturesFragment_to_seaCreatureDetailsFragment"
+            android:id="@+id/toDetailsFragment"
             app:destination="@id/seaCreatureDetailsFragment" />
     </fragment>
     <fragment

@@ -9,7 +9,7 @@ import com.rabross.acnh.core.setOnSafeClickListener
 import com.rabross.acnh.creature.sea.databinding.ItemSeaCreatureBinding
 import com.rabross.acnh.creature.sea.ui.mappers.toSeaCreature
 
-internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) : RecyclerView.Adapter<SeaCreatureViewHolder>() {
+internal class SeaCreatureAdapter(private val onClick: (SeaCreature) -> Unit) : RecyclerView.Adapter<SeaCreatureViewHolder>() {
 
     private val listManager = createListManager()
 
@@ -27,7 +27,7 @@ internal class SeaCreatureAdapter(private val callback: (SeaCreature) -> Unit) :
         val seaCreature = listManager.currentList[position]
         holder.binding.viewModel = seaCreature.toSeaCreature()
         holder.binding.root.setOnSafeClickListener {
-            callback(seaCreature)
+            onClick(seaCreature)
         }
         holder.binding.executePendingBindings()
     }
