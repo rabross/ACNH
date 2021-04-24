@@ -46,8 +46,8 @@ class SeaCreaturesFragment
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         setupRecyclerView()
-        viewModel.fetchSeaCreatures()
         viewModel.handleClicks { directions -> findNavController().navigate(directions) }
+        viewModel.fetch()
     }
 
     private fun setupRecyclerView() = with(binding.seaCreatureRecyclerview) {

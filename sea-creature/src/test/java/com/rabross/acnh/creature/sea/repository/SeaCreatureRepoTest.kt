@@ -2,7 +2,7 @@ package com.rabross.acnh.creature.sea.repository
 
 import com.rabross.acnh.content.creature.SeaCreature
 import com.rabross.acnh.content.creature.SeaCreatures
-import com.rabross.acnh.content.creature.seaCreature
+import com.rabross.acnh.creature.sea.seaCreature
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
