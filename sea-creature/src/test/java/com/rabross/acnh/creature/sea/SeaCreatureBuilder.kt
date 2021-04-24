@@ -1,11 +1,13 @@
-package com.rabross.acnh.content.creature
+package com.rabross.acnh.creature.sea
+
+import com.rabross.acnh.content.creature.SeaCreature
 
 fun seaCreature(block: SeaCreatureBuilder.() -> Unit) = SeaCreatureBuilder().apply(block).build()
 
 class SeaCreatureBuilder {
     var id = -1
     var name = ""
-    var availability: SeaCreature.Availability? = null
+    var availability = SeaCreature.Availability(emptyList(), SeaCreature.Availability.Months(emptyList(), emptyList()))
     var shadow = SeaCreature.Shadow.Unknown
     var price = 0
     var catchphrase = ""
@@ -21,7 +23,7 @@ class SeaCreatureBuilder {
     fun build() = SeaCreature(
         id = id,
         name = name,
-        availability = availability!!,
+        availability = availability,
         shadow = shadow,
         price = 0,
         catchphrase = catchphrase,

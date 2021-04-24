@@ -1,6 +1,6 @@
 package com.rabross.acnh.creature.sea.repository.local.mappers
 
-import com.rabross.acnh.content.creature.seaCreature
+import com.rabross.acnh.creature.sea.seaCreature
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import com.rabross.acnh.content.creature.SeaCreature as SeaCreatureEntity

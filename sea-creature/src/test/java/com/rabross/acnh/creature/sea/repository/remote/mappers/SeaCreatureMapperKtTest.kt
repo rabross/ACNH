@@ -1,6 +1,6 @@
 package com.rabross.acnh.creature.sea.repository.remote.mappers
 
-import com.rabross.acnh.content.creature.seaCreature
+import com.rabross.acnh.creature.sea.seaCreature
 import com.rabross.acnh.creature.sea.repository.remote.model.Availability
 import com.rabross.acnh.creature.sea.repository.remote.model.Name
 import com.rabross.acnh.creature.sea.repository.remote.model.SeaCreature

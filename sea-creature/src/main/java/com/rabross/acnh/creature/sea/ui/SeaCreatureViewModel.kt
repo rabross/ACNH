@@ -26,15 +26,27 @@ class SeaCreatureViewModel @Inject constructor(
 
     private val clicks = Channel<SeaCreature>(RENDEZVOUS)
 
-    fun fetchSeaCreatures() {
+    fun fetch() {
+        runFetch(::getSeaCreatures)
+    }
+
+    fun filter(filter: String) {
+        runFetch { getSeaCreatures().filter { it.name.contains(filter) } }
+    }
+
+    private fun runFetch(func: suspend () -> SeaCreatures) {
         viewModelScope.launch(dispatcher.io()) {
             try {
-                _seaCreatures.value = SeaCreatureViewState.Loaded(seaCreaturesUseCase.execute().first())
+                _seaCreatures.value = SeaCreatureViewState.Loaded(func())
             } catch (exception: Exception) {
                 _seaCreatures.value = SeaCreatureViewState.Error
                 Timber.d(exception)
             }
         }
+    }
+
+    private suspend fun getSeaCreatures(): SeaCreatures {
+        return seaCreaturesUseCase.execute().first()
     }
 
     fun onClick(seaCreature: SeaCreature){
