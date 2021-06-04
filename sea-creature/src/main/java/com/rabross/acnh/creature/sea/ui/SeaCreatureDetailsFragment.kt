@@ -36,7 +36,7 @@ class SeaCreatureDetailsFragment
 
         return ComposeView(requireContext()).apply {
             setContent {
-                MaterialTheme {
+                MyTheme {
                     SeaCreatureDetailComposable(detail = args.seaCreatureDetail)
                 }
             }
