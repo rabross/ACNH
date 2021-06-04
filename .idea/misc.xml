@@ -8,7 +8,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../../../layout/custom_preview.xml" value="0.21302083333333333" />
+        <entry key="../../../../../../layout/compose-model-1622813534722.xml" value="1.5" />
+        <entry key="../../../../../../layout/compose-model-1622816738754.xml" value="1.5" />
+        <entry key="../../../../../../layout/compose-model-1622817018053.xml" value="0.23703703703703705" />
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="sea-creature/src/main/res/layout/fragment_sea_creature_details.xml" value="0.2658514492753623" />
+        <entry key="sea-creature/src/main/res/layout/fragment_sea_creature_details_page.xml" value="0.14221014492753623" />
+        <entry key="sea-creature/src/main/res/layout/fragment_sea_creature_details_toolbar_layout.xml" value="0.14221014492753623" />
+        <entry key="sea-creature/src/main/res/layout/item_sea_creature_details_page.xml" value="0.13451086956521738" />
+        <entry key="sea-creature/src/main/res/layout/sea_creature_collapsing_toolbar_layout.xml" value="0.2504528985507246" />
+        <entry key="sea-creature/src/main/res/layout/sea_creature_detail_layout.xml" value="0.2658514492753623" />
       </map>
     </option>
   </component>
