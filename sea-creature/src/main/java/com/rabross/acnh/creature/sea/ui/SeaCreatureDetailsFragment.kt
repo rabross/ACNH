@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.rabross.acnh.creature.sea.ui.composable.MyTheme
+import com.rabross.acnh.creature.sea.ui.composable.SeaCreatureDetailComposable
 import javax.inject.Inject
 
 class SeaCreatureDetailsFragment
