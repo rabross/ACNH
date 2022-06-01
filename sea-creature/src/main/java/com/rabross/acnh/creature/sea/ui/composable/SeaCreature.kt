@@ -11,7 +11,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.glide.rememberGlidePainter
 import androidx.compose.foundation.lazy.items
@@ -29,9 +28,18 @@ internal fun SeaCreaturePageComposable(
     modifier: Modifier = Modifier
 ) {
     val seaCreaturesState = viewModel.seaCreatures.collectAsState(initial = SeaCreatureViewState.Loading)
-    when(seaCreaturesState.value){
+    handleState(state = seaCreaturesState.value, viewModel, modifier)
+}
+
+@Composable
+private fun handleState(
+    state: SeaCreatureViewState,
+    viewModel: SeaCreatureViewModel,
+    modifier: Modifier
+){
+    when(state){
         is SeaCreatureViewState.Loaded -> {
-            SeaCreatureLoaded((seaCreaturesState.value as SeaCreatureViewState.Loaded).seaCreatures, modifier) { seaCreature ->
+            SeaCreatureLoaded(state.seaCreatures, modifier) { seaCreature ->
                 viewModel.onClick(seaCreature)
             }
         }
