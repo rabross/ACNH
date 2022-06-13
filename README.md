@@ -6,6 +6,8 @@ An app to try out Android frameworks and features (e.g. Jetpack)
 Animal Crossing: New Horizons themed because I'm playing that just now.\
 Built around data from https://github.com/alexislours/ACNHAPI
 
+A highly tested, multi-module MVVM architecture codebase
+
 ### Notable frameworks and libraries
 - [Dagger](https://dagger.dev/)
 - [ReactiveX](http://reactivex.io/)  ->  [Flow](https://kotlinlang.org/docs/flow.html) 
